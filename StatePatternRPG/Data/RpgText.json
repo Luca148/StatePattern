@@ -1,0 +1,125 @@
+{
+  "rooms": {
+    "empty": {
+      "descriptions": [
+        "The room is quiet and empty. Dust covers the floor, and the faint sound of dripping water echoes through the walls.",
+        "You enter a deserted chamber. There is nothing immediately threatening, but the silence makes you uneasy.",
+        "The room appears to have been abandoned long ago. Broken stones and old footprints are scattered across the floor."
+      ],
+      "interactions": {
+        "proceed": [
+          "You move deeper into the dungeon.",
+          "You carefully continue through the room.",
+          "You decide not to linger and head onward."
+        ],
+        "observe": [
+          "You search the room carefully, but find nothing of value.",
+          "You inspect the walls and floor. Nothing seems out of place.",
+          "After a closer look, you discover only dust, rubble, and old footprints."
+        ],
+        "interact": [
+          "You touch the old stone wall. Nothing happens.",
+          "You investigate a loose stone, but there is nothing behind it.",
+          "You search the room for anything useful, but come up empty-handed."
+        ],
+        "attack": [
+          "You swing your weapon through the empty air. There is nothing here to fight.",
+          "You prepare to attack, but quickly realize there is no enemy.",
+          "You raise your weapon cautiously. The room remains completely still."
+        ]
+      }
+    },
+    "enemy": {
+      "descriptions": [
+        "A hostile creature emerges from the shadows. Its eyes lock onto you, and it prepares to attack.",
+        "You hear a low growl from the darkness. A dangerous enemy steps into the light and blocks your path.",
+        "Before you can move, a creature leaps from behind a pile of rubble. It looks ready for a fight."
+      ],
+      "interactions": {
+        "proceed": [
+          "You try to move past the enemy, but it refuses to let you pass.",
+          "The enemy blocks your path. You cannot proceed without dealing with it.",
+          "You take a step forward, but the creature stands firmly in your way."
+        ],
+        "attack": [
+          "You raise your weapon and charge at the enemy.",
+          "You strike at the creature with all your strength.",
+          "You attack before the enemy has a chance to react."
+        ],
+        "observe": [
+          "You study your opponent carefully. It looks strong, but not invincible.",
+          "You watch the creature's movements and search for a weakness.",
+          "You keep your distance and analyze the enemy before making your next move."
+        ],
+        "interact": [
+          "You attempt to communicate with the creature. It responds with an angry growl.",
+          "You cautiously approach the enemy, but it shows no sign of friendship.",
+          "You try to distract the creature, but it remains focused on you."
+        ]
+      }
+    },
+    "trap": {
+      "descriptions": [
+        "The room looks strangely untouched. As you step inside, you notice several suspicious mechanisms hidden beneath the floor.",
+        "Something feels wrong about this room. Small holes line the walls, and several stones appear slightly out of place.",
+        "You enter a chamber filled with strange markings. The floor seems designed to punish anyone who walks across it carelessly."
+      ],
+      "interactions": {
+        "proceed": [
+          "You carefully move forward, watching every step.",
+          "You slowly cross the room, trying to avoid anything suspicious.",
+          "You hold your breath and make your way through the room."
+        ],
+        "attack": [
+          "You swing your weapon at a suspicious mechanism. The trap remains intact.",
+          "You strike at the strange mechanism, but your attack does little.",
+          "You attack the nearest suspicious object, hoping to disable the trap."
+        ],
+        "observe": [
+          "You carefully examine the floor and notice several pressure plates.",
+          "You study the walls and discover tiny openings that could hide dangerous mechanisms.",
+          "You inspect the room from a safe distance and identify several possible traps."
+        ],
+        "interact": [
+          "You carefully examine one of the mechanisms and manage to disable it.",
+          "You try to manipulate the mechanism without triggering it.",
+          "You carefully move a suspicious stone. You hear a click, but nothing happens."
+        ]
+      }
+    },
+    "dead_end": {
+      "descriptions": [
+        "You reach the end of the path. A massive stone wall blocks your way. There is nowhere else to go.",
+        "The corridor ends abruptly in a solid wall. Your journey comes to an unexpected end.",
+        "You step into a small chamber and realize there is no exit. The path behind you has vanished into darkness."
+      ],
+      "interactions": {
+        "proceed": [
+          "You walk forward, but the wall brings you to a complete stop.",
+          "You try to continue, but there is simply nowhere to go.",
+          "You search for a way forward, but the path ends here."
+        ],
+        "attack": [
+          "You strike the stone wall. Your weapon bounces off harmlessly.",
+          "You attack the wall, but it barely reacts to the impact.",
+          "You give the wall one final blow. It remains completely untouched."
+        ],
+        "observe": [
+          "You carefully inspect the wall. There are no obvious passages or hidden doors.",
+          "You examine every corner of the chamber, but find no way forward.",
+          "You search for cracks, switches, or hidden mechanisms. Nothing reveals itself."
+        ],
+        "interact": [
+          "You push against the wall. It does not move.",
+          "You search the wall for a hidden mechanism, but find nothing.",
+          "You run your hands across the stones. There is no secret passage."
+        ]
+      },
+      "gameOver": [
+        "There is nowhere left to go. Your adventure ends here.",
+        "The path has come to an end. Your journey is over.",
+        "With no way forward, your adventure comes to an end."
+      ]
+    }
+  }
+}
