@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Cryptography;
-using System.Text;
+﻿using StatePatternRPG.Definitions;
 
 namespace StatePatternRPG
 {
@@ -19,13 +15,14 @@ namespace StatePatternRPG
 
         private IGameController _gameController = controller;
         private RoomType _room = RoomType.Empty;
+        private RpgText _text = new();
 
         private Random _random = new();
         public void Run()
         {
-            while(CanContinue())
+            while (CanContinue())
             {
-                switch(_gameController.GetInput())
+                switch (_gameController.GetInput())
                 {
                     case GameCommand.Attack:
                         Attack();
@@ -49,14 +46,14 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.TrapDiscovered:
-
+                    Console.WriteLine(_text.rooms.trap.interact);
                     _room = RoomType.Empty;
                     break;
                 case RoomType.Enemy:
-                    //interact enemy
+                    Console.WriteLine(_text.rooms.enemy.interact);
                     break;
                 default:
-                    //interact empty
+                    Console.WriteLine(_text.rooms.empty.interact);
                     break;
             }
         }
@@ -66,14 +63,14 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.Trap:
-                    //trap found
+                    Console.WriteLine(_text.rooms.trap.observe);
                     _room = RoomType.TrapDiscovered;
                     break;
                 case RoomType.Enemy:
-                    //observe enemy
+                    Console.WriteLine(_text.rooms.enemy.observe);
                     break;
                 default:
-                    //observe empty
+                    Console.WriteLine(_text.rooms.empty.observe);
                     break;
             }
         }
@@ -83,21 +80,21 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.Trap:
+                    Console.WriteLine(_text.rooms.trap.proceed);
                     _room = RoomType.GameOver;
-                    //tod dialog
                     break;
                 case RoomType.TrapDiscovered:
-                    //tod dialog
+                    Console.WriteLine(_text.rooms.trap.proceed);
                     _room = RoomType.GameOver;
                     break;
                 case RoomType.Enemy:
+                    Console.WriteLine(_text.rooms.enemy.proceed);
                     _room = RoomType.GameOver;
-                    //tod dialog
                     return;
                 default:
                     break;
             }
-            //proceed dialog
+            Console.WriteLine(_text.rooms.empty.proceed);
             _room = GetRandomRoom();
         }
 
@@ -106,11 +103,11 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.Enemy:
+                    Console.WriteLine(_text.rooms.enemy.attack);
                     _room = RoomType.Empty;
-                    //dialog kill enemy
                     break;
                 default:
-                    //empty attack
+                    Console.WriteLine(_text.rooms.empty.attack);
                     break;
             }
         }
