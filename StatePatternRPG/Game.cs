@@ -13,18 +13,12 @@ namespace StatePatternRPG
             Empty,
             Trap,
             Enemy,
-            DeadEnd
+            GameOver,
+            TrapDiscovered
         }
-        private enum Trapstatus
-        {
-            Disarmed,
-            Discovered,
-            Undiscovered,
-        }
+
         private IGameController _gameController = controller;
         private RoomType _room = RoomType.Empty;
-
-        private Trapstatus _trapstatus = Trapstatus.Disarmed;
 
         private Random _random = new();
         public void Run()
@@ -54,22 +48,16 @@ namespace StatePatternRPG
         {
             switch (_room)
             {
-                case RoomType.Trap:
-                    if(_trapstatus == Trapstatus.Discovered)
-                    {
-                        _trapstatus = Trapstatus.Disarmed;
-                        //falle entschärft dialog
-                        break;
-                    }
-                    //interact empty
+                case RoomType.TrapDiscovered:
+
+                    _room = RoomType.Empty;
                     break;
                 case RoomType.Enemy:
                     //interact enemy
                     break;
-                case RoomType.Empty:
-                    //interact empty
                 default:
-                    throw new Exception();
+                    //interact empty
+                    break;
             }
         }
 
@@ -78,21 +66,15 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.Trap:
-                    if (_trapstatus == Trapstatus.Undiscovered)
-                    {
-                        _trapstatus = Trapstatus.Discovered;
-                        //falle entdeckt dialog
-                        break;
-                    }
-                    //falle bereits entdeckt
+                    //trap found
+                    _room = RoomType.TrapDiscovered;
                     break;
                 case RoomType.Enemy:
                     //observe enemy
                     break;
-                case RoomType.Empty:
-                    //observe empty
                 default:
-                    throw new Exception();
+                    //observe empty
+                    break;
             }
         }
 
@@ -101,15 +83,15 @@ namespace StatePatternRPG
             switch (_room)
             {
                 case RoomType.Trap:
-                    if (_trapstatus != Trapstatus.Disarmed)
-                    {
-                        _room = RoomType.DeadEnd;
-                        //tod dialog
-                        return;
-                    }
+                    _room = RoomType.GameOver;
+                    //tod dialog
+                    break;
+                case RoomType.TrapDiscovered:
+                    //tod dialog
+                    _room = RoomType.GameOver;
                     break;
                 case RoomType.Enemy:
-                    _room = RoomType.DeadEnd;
+                    _room = RoomType.GameOver;
                     //tod dialog
                     return;
                 default:
@@ -135,7 +117,7 @@ namespace StatePatternRPG
 
         private bool CanContinue()
         {
-            return _room != RoomType.DeadEnd;
+            return _room != RoomType.GameOver;
         }
 
         private RoomType GetRandomRoom()
