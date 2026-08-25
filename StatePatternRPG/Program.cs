@@ -1,4 +1,4 @@
-﻿namespace StatePatternRPG;
+﻿namespace StatePatternRPG.Code;
 public class Program
 {
     public static void Main(string[] args)
