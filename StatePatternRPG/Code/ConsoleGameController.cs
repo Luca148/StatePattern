@@ -1,4 +1,6 @@
-﻿namespace StatePatternRPG
+﻿using StatePatternRPG.Interfaces;
+
+namespace StatePatternRPG.Code
 {
     internal class ConsoleGameController : IGameController
     {

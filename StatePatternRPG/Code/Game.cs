@@ -1,6 +1,7 @@
 ﻿using StatePatternRPG.Definitions;
+using StatePatternRPG.Interfaces;
 
-namespace StatePatternRPG
+namespace StatePatternRPG.Code
 {
     internal class Game(IGameController controller)
     {

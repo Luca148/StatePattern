@@ -1,4 +1,4 @@
-﻿namespace StatePatternRPG
+﻿namespace StatePatternRPG.Code
 {
     internal enum GameCommand
     {
