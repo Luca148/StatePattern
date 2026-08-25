@@ -67,6 +67,9 @@ namespace StatePatternRPG.Code
                     Console.WriteLine(_text.rooms.trap.observe);
                     _room = RoomType.TrapDiscovered;
                     break;
+                case RoomType.TrapDiscovered:
+                    Console.WriteLine(_text.rooms.trap.observe);
+                    break;
                 case RoomType.Enemy:
                     Console.WriteLine(_text.rooms.enemy.observe);
                     break;
